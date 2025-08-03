@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Curiosidades sobre Charly García</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/estilos.css'>    
+</head>
+<body>
+    <div class="container">
+        <h1>Lo mejor de García</h1>
+        <p> El Ícono argentino tiene una obra llena de autorreferencias, momentos inéditos y notas en las revistas más importantes de Argentina. <br> Antes de mencionarlos todos... <span>¿Te animas a un juego para ver cuanto sabes de él?</span> </p>
+        <section>
+            <h2> Quizz sobre Charly García</h2>
+            <div id="app">
+                <form v-if="!finished" @submit.prevent="submitQuiz">
+                    <div v-for="(q, idx) in selectedQuestions" :key="q.id" class="mb-4">
+                        <label class="fw-bold">{{ idx + 1 }}. {{ q.question }}</label>
+                        <div v-if="q.type === 'radio'">
+                            <div v-for="(opt, oidx) in q.options" :key="oidx">
+                                <input type="radio"
+                                    :name="'q'+idx"
+                                    :value="opt"
+                                    v-model="userAnswers[idx]"
+                                    required>
+                                <label>{{ opt }}</label>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <input type="text" v-model="userAnswers[idx]" class="form-control" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar respuestas</button>
+                </form>
+                <div v-else>
+                    <h3>¡Resultados!</h3>
+                    <p>Respuestas correctas: {{ score }} de 5</p>
+                    <ul>
+                        <li v-for="(q, idx) in selectedQuestions" :key="q.id">
+                            <strong>{{ q.question }}</strong><br>
+                            Tu respuesta: {{ userAnswers[idx] }}<br>
+                            <span v-if="isCorrect(idx)" class="text-success">✔ Correcta</span>
+                            <span v-else class="text-danger">✘ Incorrecta (Correcta: {{ q.answer }})</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-secondary" @click="restart">Jugar de nuevo</button>
+                </div>
+            </div>
+            <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+            <script src="../js/quizz.js"></script>
+        </section>
+    </div>
+</body>
+</html>
