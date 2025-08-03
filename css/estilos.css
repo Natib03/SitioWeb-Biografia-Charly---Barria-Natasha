@@ -51,7 +51,8 @@ form {
     gap: 1.5rem;
 }
 
-.form-group, form > div {
+.form-group, form > 
+.div {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -233,23 +234,68 @@ button:hover, .btn:hover {
     margin: 0;
 }
 
-/* --- MENÚ DE NAVEGACIÓN --- */
-nav {
-    background: var(--main-bg);
-    padding: 1rem 0;
+/* --- NAVBAR PERSONALIZADO --- */
+nav.navbar {
+    font-family: 'Oswald', 'Segoe UI', Arial, sans-serif;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    justify-content: center;
+}
+
+.navbar .navbar-brand {
+    font-family: 'Oswald', 'Segoe UI', Arial, sans-serif;
+    font-size: 2rem;
+    color: #e63946 !important;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 8px #181818;
+    margin-right: 2rem;
     text-align: center;
-    margin-bottom: 2rem;
+    width: 100%;
 }
-nav a {
-    color: var(--secondary);
-    text-decoration: none;
+
+.navbar-nav {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.navbar-nav .nav-link {
+    color: #f5f5f5 !important;
     font-weight: 600;
-    margin: 0 1.5rem;
-    font-size: 1.1rem;
-    transition: color 0.2s;
+    margin: 0 0.7rem;
+    border-radius: 6px;
+    transition: 
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.2s;
+    padding: 0.5rem 1.1rem;
+    display: inline-block;
 }
-nav a:hover {
-    color: var(--accent);
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    background: #e63946;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(230,57,70,0.18);
+    text-decoration: none;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link[aria-current="page"] {
+    background: #457b9d;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(69,123,157,0.18);
+}
+
+@media (max-width: 991px) {
+    .navbar .navbar-brand {
+        font-size: 1.4rem;
+        margin-right: 0;
+    }
+    .navbar-nav .nav-link {
+        margin: 0.3rem 0;
+        padding: 0.5rem 0.7rem;
+    }
 }
 
 /* --- IMÁGENES REPRESENTATIVAS --- */
@@ -280,5 +326,106 @@ img {
     }
     #app .mb-4 {
         padding: 0.7rem;
+    }
+}
+
+/* --- ESTILOS DISCOSGRAFÍA --- */
+
+/* Fondo y bordes para cada banda/etapa */
+.discografia-sui {
+    background: linear-gradient(90deg, #232323 80%, #457b9d 100%);
+    border-left: 6px solid #e63946;
+    border-radius: 14px;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 1rem;
+}
+.discografia-maquina {
+    background: linear-gradient(90deg, #232323 80%, #e63946 100%);
+    border-left: 6px solid #457b9d;
+    border-radius: 14px;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 1rem;
+}
+.discografia-seru {
+    background: linear-gradient(90deg, #232323 80%, #f5f5f5 100%);
+    border-left: 6px solid #222;
+    border-radius: 14px;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 1rem;
+}
+.discografia-charly {
+    background: linear-gradient(90deg, #232323 80%, #e6c229 100%);
+    border-left: 6px solid #e63946;
+    border-radius: 14px;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 1rem;
+}
+.discografia-porsuigieco {
+    background: linear-gradient(90deg, #232323 80%, #7d5fff 100%);
+    border-left: 6px solid #fff;
+    border-radius: 14px;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 1rem;
+}
+
+/* Títulos de cada banda */
+.discografia-sui h2,
+.discografia-maquina h2,
+.discografia-seru h2,
+.discografia-charly h2,
+.discografia-porsuigieco h2 {
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 8px #000;
+}
+
+/* Estilos para los tipos de álbum */
+.album-estudio {
+    background: #232323;
+    border-left: 5px solid #457b9d;
+    color: #f5f5f5;
+    margin-bottom: 0.5rem;
+}
+.album-en-vivo {
+    background: #181818;
+    border-left: 5px solid #e63946;
+    color: #fff;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+.album-recopilacion {
+    background: #292929;
+    border-left: 5px solid #e6c229;
+    color: #fffbe7;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Mejorar visual de los items */
+.list-group-item {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1rem 1.2rem;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.list-group-item:hover {
+    background: #333;
+    box-shadow: 0 4px 16px rgba(70,123,157,0.15);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .discografia-sui,
+    .discografia-maquina,
+    .discografia-seru,
+    .discografia-charly,
+    .discografia-porsuigieco {
+        padding: 1rem 0.3rem;
+    }
+    .list-group-item {
+        padding: 0.7rem 0.5rem;
     }
 }
