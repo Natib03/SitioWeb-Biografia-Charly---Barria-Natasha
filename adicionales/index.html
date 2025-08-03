@@ -15,9 +15,9 @@
             <h2> Quizz sobre Charly García</h2>
             <div id="app">
                 <form v-if="!finished" @submit.prevent="submitQuiz">
-                    <div v-for="(q, idx) in selectedQuestions" :key="q.id" class="mb-4">
-                        <label class="fw-bold">{{ idx + 1 }}. {{ q.question }}</label>
-                        <div v-if="q.type === 'radio'">
+                    <div :class="['mb-4', q.type === 'text' ? 'flex-text' : '', q.type === 'radio' ? 'flex-radio' : '']" v-for="(q, idx) in selectedQuestions" :key="q.id">
+                        <label class="fw-bold" v-html="q.question.replace(/\n/g, '<br>')"></label>
+                        <div v-if="q.type === 'radio'" class="opciones-radio">
                             <div v-for="(opt, oidx) in q.options" :key="oidx">
                                 <input type="radio"
                                     :name="'q'+idx"
@@ -27,9 +27,7 @@
                                 <label>{{ opt }}</label>
                             </div>
                         </div>
-                        <div v-else>
-                            <input type="text" v-model="userAnswers[idx]" class="form-control" required>
-                        </div>
+                        <input v-else type="text" v-model="userAnswers[idx]" class="form-control" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar respuestas</button>
                 </form>
