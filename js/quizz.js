@@ -1,16 +1,21 @@
-<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 const preguntas = [
     // Aquí puedes poner tus 10 preguntas (reemplaza los textos por los que quieras)
     { id: 1, type: 'radio', question: '¿En qué año nació Charly García?', options: ['1951', '1952', '1953'], answer: '1951' },
-    { id: 2, type: 'radio', question: '¿Cuál fue su primer banda famosa?', options: ['Serú Girán', 'Sui Generis', 'La Máquina de Hacer Pájaros'], answer: 'Sui Generis' },
-    { id: 3, type: 'radio', question: '¿Qué instrumento toca principalmente?', options: ['Guitarra', 'Batería', 'Teclado'], answer: 'Teclado' },
-    { id: 4, type: 'radio', question: '¿Cuál es su apodo?', options: ['El Flaco', 'El Bicolor', 'El Indio'], answer: 'El Bicolor' },
+    { id: 2, type: 'radio', question: 'En su canción Influencia, luego del segundo estribillo tararea una característica melodía, la misma es parte de su segundo álbum solista Pubis Angelical / Yendo de la Cama al Living. ¿Cuál es la canción donde surgió esa melodía por primera vez?', options: ['Monóculo Fantastico', 'Transatlántico Art Deco', 'Inconsciente Colectivo', 'Pubis Angelical'], answer: 'Transatlántico Art Deco' },
+    { id: 3, type: 'radio', question: '¿A qué edad comenzo a tocar el teclado?', options: ['3 años', '5 años', '10 años'], answer: '3 años' },
+    { id: 4, type: 'radio', question: 'En su último álbum "La Lógica del Escorpión" incluyó una reversión  de su antiguo éxito "Juan Represión" ¿Con qué banda lo compuso originalmente?', options: ['Sui Generis', 'Serú Giran', 'La Maquina de Hacer Pájaros'], answer: 'Sui Generis' },
     { id: 5, type: 'radio', question: '¿En qué ciudad nació?', options: ['Buenos Aires', 'Rosario', 'Córdoba'], answer: 'Buenos Aires' },
-    { id: 6, type: 'radio', question: '¿Con quién formó Sui Generis?', options: ['David Lebón', 'Nito Mestre', 'Pedro Aznar'], answer: 'Nito Mestre' },
-    { id: 7, type: 'radio', question: '¿Qué color tiene su piano más famoso?', options: ['Negro', 'Blanco y negro', 'Rojo'], answer: 'Blanco y negro' },
-    { id: 8, type: 'radio', question: '¿En qué año lanzó "Clics Modernos"?', options: ['1983', '1985', '1987'], answer: '1983' },
-    { id: 9, type: 'text', question: '¿Cuál es el verdadero nombre de Charly García?', answer: 'Carlos Alberto García' },
-    { id: 10, type: 'text', question: '¿Cómo se llama su disco debut solista?', answer: 'Yendo de la cama al living' }
+    { id: 6, type: 'radio', question: 'Junto con Pedro Aznar tenían en mente componer el álbum colaborativo "Tango 3" con un artista más ¿Con quién?', options: ['David Lebón', 'Luis "El Flaco" Spinetta', 'Gustavo Cerati'], answer: 'Gustavo Cerati' },
+    { id: 7, type: 'radio', question: 'El maestro argentino ha declarado como durante su juventud, fue seleccionado para el servicio militar obligatorio y al querer salir a toda costa, realizó una "travesía" para que lo sacaran. ¿Qué hizo?', options: ['Fingir una enfermedad cardíaca', 'Bajarse los pantalones constantemente ', 'Pasear un cadáver en una camilla', 'Sobredosis de pastillas para intoxicarse'], answer: 'Pasear un cadáver en una camilla' },
+    { id: 8, type: 'radio', question: 'Su famoso bigote bicolor es causado por una extraña enfermedad que surge durante la infancia, surgió cuando tenia 3 años por quedarse solo cuando sus padres viajaron por cuestiones laborales ', options: ['Verdadero', 'Falso'], answer: 'Verdadero' },
+    { id: 9, type: 'radio', question: 'Charly García posee una genética que favoreció el desarrollo de su oído absoluto (Capacidad para reconocer la nota musical más próxima a cualquier frecuencia de sonido) ', options: ['Verdadero', 'Falso'], answer: 'Verdadero' },
+    { id: 10, type: 'radio', question: 'En su estadía por Nueva York, para la grabación de Clics Modernos recurrió al estudio "Electric Lady Studios" perteneciente a la leyenda musical:', options: ['B.B.King', 'Paul McCartney', 'Jimi Hendrix'], answer: 'Jimi Hendrix' },
+    { id: 11, type: 'radio', question: 'La canción "Peperina" de Serú Giran fue inspirada y dedicada a una persona que conocieron durante sus shows en Cordoba, recordada porque irritaba mucho a los 4. ¿Cómo la conocian?', options: ['Era una reportera local', 'Era una "grupie" ', 'Era novia de su productor'], answer: 'Era una reportera local' },
+    { id: 12, type:'radio', question: 'Su primera canción "Corazón de Hormigón" (luego incluida en el álbum Kill Gill) la compusó con tan solo:', options: ['12 años', '9 años', '15 años'], answer: '9 años' },
+    { id: 13, type: 'text', question: 'En la icónica entrevista con Jorge Lanata. ¿Qué responde Charly luego de esta interacción? C- "¿A vos te parece que yo soy artista? L- "No lo sé, yo creo que hiciste grandes cosas y que después te empezaste a copiar a vos y creo que te das cuenta."C- "Yo pienso que vos sos __________ ', answer: 'un pelotudo' },
+    { id: 14, type: 'text', question: '¿Cuál es el verdadero nombre de Charly García?', answer: 'Carlos Alberto García' },
+    { id: 15, type: 'text', question: 'En 2018 su nuevo y más reciente álbum "Random" fue ganador del Gardel de ORO. Al recibirlo sus palabras fueron: "Quiero dedicar este premio a Carlos Gardel, Maria Gabriela Epumer, el Flaco Spinetta, el Negro García Lopez, Prince, Cerati y hay que prohibir _________"', answer: 'el autotune' },
+    { id: 16, type: 'text', question: 'La cúspide de sus escandalos mediáticos, Charly se lanza a una pileta desde el _______ piso de un hotel en Mendoza.', answer: 'noveno' }
 ];
 
 const app = Vue.createApp({
