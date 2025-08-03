@@ -1,0 +1,5 @@
+/* Estilos para el formulario de contacto */
+form div,
+form button {
+    margin: 0.5rem;
+}
