@@ -51,8 +51,7 @@ form {
     gap: 1.5rem;
 }
 
-.form-group, form > 
-.div {
+.form-group, form > div {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -297,6 +296,29 @@ nav.navbar {
         padding: 0.5rem 0.7rem;
     }
 }
+
+/* --- SITE NAVBAR (semantic class to avoid visual utilities in HTML) --- */
+.site-navbar {
+    background-color: #212529; /* matches Bootstrap dark */
+    margin-bottom: 1.5rem; /* replaces `mb-4` utility */
+}
+
+.site-navbar .navbar-collapse {
+    justify-content: flex-end; /* keep menu items to the right */
+}
+
+.site-navbar .navbar-toggler-icon {
+    filter: invert(1); /* ensure toggler is visible on dark background */
+}
+
+/* more specific override so existing .navbar-nav centering doesn't conflict */
+.site-navbar .navbar-nav {
+    margin: 0; /* reset centering from global rules */
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
 
 /* --- IMÁGENES REPRESENTATIVAS --- */
 img {
