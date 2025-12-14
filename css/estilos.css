@@ -286,16 +286,7 @@ nav.navbar {
     box-shadow: 0 2px 8px rgba(69,123,157,0.18);
 }
 
-@media (max-width: 991px) {
-    .navbar .navbar-brand {
-        font-size: 1.4rem;
-        margin-right: 0;
-    }
-    .navbar-nav .nav-link {
-        margin: 0.3rem 0;
-        padding: 0.5rem 0.7rem;
-    }
-}
+
 
 /* --- SITE NAVBAR (semantic class to avoid visual utilities in HTML) --- */
 .site-navbar {
@@ -324,29 +315,6 @@ nav.navbar {
 img {
     max-width: 100%;
     margin: 1rem 0;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 600px) {
-    .container {
-        padding: 1rem 0.5rem;
-    }
-    h1 {
-        font-size: 1.5rem;
-    }
-    h2 {
-        font-size: 1.2rem;
-    }
-    .form-group, form > div {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    #app form {
-        padding: 1rem 0.5rem;
-    }
-    #app .mb-4 {
-        padding: 0.7rem;
-    }
 }
 
 /* --- ESTILOS DISCOSGRAFÍA --- */
@@ -397,6 +365,66 @@ img {
     font-size: 1.6rem;
     margin-bottom: 1rem;
     text-shadow: 1px 1px 8px #000;
+}
+
+/* --- ajustes específicos para `vidapersonal` (.bio-content) --- */
+.bio-content h2,
+.bio-content h3,
+.bio-content h4 {
+    text-align: left; /* subtítulos alineados a la izquierda */
+
+    font-weight: 700;
+}
+
+.bio-content h2 {
+    /* menos agresivo: tamaño similar a un h3, menor espacio */
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.6px;
+}
+
+.bio-content h3 {
+    font-size: 1.25rem; /* un poco más grande que el texto de párrafo */
+    margin: 0 0 0.75rem 0;
+    padding-left: 1rem; /* alineado con los párrafos */
+    padding-right: 1rem;
+    line-height: 1.35;
+    box-sizing: border-box;
+    color: var(--secondary);
+}
+
+.bio-content h4 {
+    /* Igual tamaño visual que h3, con un poco más de padding lateral */
+    font-size: 1.25rem;
+    margin: 0 0 0.6rem 0;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    line-height: 1.35;
+    box-sizing: border-box;
+}
+
+.bio-content section {
+    margin: 2.25rem 0; /* más espacio entre secciones */
+}
+
+.bio-content p,
+.bio-content ul {
+    padding-left: 1rem; /* más espacio lateral para mejor lectura */
+    padding-right: 1rem;
+    line-height: 1.6;
+}
+
+
+
+/* Centrar iframes y hacerlos responsivos dentro de .bio-content */
+.bio-content iframe {
+    display: block;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 560px; /* mantén el ancho máximo original */
+    aspect-ratio: 16/9; /* fuerza proporción (mejor que height:auto) */
+    height: auto;
+    border: none;
 }
 
 /* Estilos para los tipos de álbum */
@@ -586,7 +614,20 @@ img, .bio-sidebar-img, .band-card-img img {
 .band-card:hover .band-card-name {
     color: var(--accent);
 }
-@media (max-width: 991px) {
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+   .container {
+        padding: 1rem 0.5rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+
     .bio-layout {
         flex-direction: column;
         gap: 1.5rem;
@@ -596,9 +637,15 @@ img, .bio-sidebar-img, .band-card-img img {
         flex: none;
         width: 100%;
     }
-}
+    .navbar .navbar-brand {
+        font-size: 1.4rem;
+        margin-right: 0;
+    }
+    .navbar-nav .nav-link {
+        margin: 0.3rem 0;
+        padding: 0.5rem 0.7rem;
+    }
 
-@media (max-width: 600px) {
     .discografia.sui,
     .discografia.maquina,
     .discografia.seru,
@@ -617,3 +664,22 @@ img, .bio-sidebar-img, .band-card-img img {
     .site-footer p {
         font-size: 0.9rem;
     }
+
+    .form-group, form > div {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    #app form {
+        padding: 1rem 0.5rem;
+    }
+    #app .mb-4 {
+        padding: 0.7rem;
+    }
+
+    .bio-content p,
+    .bio-content ul {
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+    }
+
+}
