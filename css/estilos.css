@@ -320,12 +320,10 @@ nav.navbar {
 }
 
 
-/* --- IMÁGENES REPRESENTATIVAS --- */
+/* --- IMÁGENES REPRESENTATIVAS (propiedades comunes agrupadas abajo) --- */
 img {
     max-width: 100%;
-    border-radius: 10px;
     margin: 1rem 0;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
 }
 
 /* --- RESPONSIVE --- */
@@ -353,50 +351,48 @@ img {
 
 /* --- ESTILOS DISCOSGRAFÍA --- */
 
-/* Fondo y bordes para cada banda/etapa */
-.discografia-sui {
-    background: linear-gradient(90deg, #232323 80%, #457b9d 100%);
-    border-left: 6px solid #e63946;
+.discografia {
     border-radius: 14px;
     margin-bottom: 2.5rem;
     padding: 1.5rem 1rem;
-}
-.discografia-maquina {
-    background: linear-gradient(90deg, #232323 80%, #e63946 100%);
-    border-left: 6px solid #457b9d;
-    border-radius: 14px;
-    margin-bottom: 2.5rem;
-    padding: 1.5rem 1rem;
-}
-.discografia-seru {
-    background: linear-gradient(90deg, #232323 80%, #f5f5f5 100%);
-    border-left: 6px solid #222;
-    border-radius: 14px;
-    margin-bottom: 2.5rem;
-    padding: 1.5rem 1rem;
-}
-.discografia-charly {
-    background: linear-gradient(90deg, #232323 80%, #e6c229 100%);
-    border-left: 6px solid #e63946;
-    border-radius: 14px;
-    margin-bottom: 2.5rem;
-    padding: 1.5rem 1rem;
-}
-.discografia-porsuigieco {
-    background: linear-gradient(90deg, #232323 80%, #7d5fff 100%);
-    border-left: 6px solid #fff;
-    border-radius: 14px;
-    margin-bottom: 2.5rem;
-    padding: 1.5rem 1rem;
+    color: #fff;
 }
 
-/* Títulos de cada banda */
-.discografia-sui h2,
-.discografia-maquina h2,
-.discografia-seru h2,
-.discografia-charly h2,
-.discografia-porsuigieco h2 {
-    color: #fff;
+.discografia.sui {
+    background: linear-gradient(90deg, #232323 80%, #2b964f 100%);
+    border-left: 6px solid #618b49;
+}
+
+.discografia.maquina {
+    background: linear-gradient(90deg, #232323 80%, #cfc63f 100%);
+    border-left: 6px solid #848b44;
+}
+
+.discografia.seru {
+    background: linear-gradient(90deg, #232323 80%, #4b48ff 100%);
+    border-left: 6px solid #50e0b5e7;
+    
+}
+
+.discografia.charly {
+    background: linear-gradient(90deg, #232323 80%, #e9661b 100%);
+    border-left: 6px solid #b81a1a;
+}
+
+.discografia.porsuigieco {
+    background: linear-gradient(90deg, #232323 80%, #b25fff 100%);
+    border-left: 6px solid #b96e97;
+}
+
+
+.discografia.extras {
+    background: linear-gradient(90deg, #232323 80%, #c5a8bf 100%);
+    border-left: 6px solid  #584f4f;
+}
+
+/* Títulos de cada banda (aplican a todas las variantes) */
+.discografia h2 {
+    color: inherit;
     letter-spacing: 2px;
     font-size: 1.6rem;
     margin-bottom: 1rem;
@@ -430,12 +426,34 @@ img {
     border: none;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    padding: 1rem 1.2rem;
+    padding: 0.9rem 1rem;
     transition: background 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
 }
 .list-group-item:hover {
     background: #333;
     box-shadow: 0 4px 16px rgba(70,123,157,0.15);
+}
+
+.album-info {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.album-info strong {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.album-cover {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    flex: 0 0 84px;
+    border-radius: 8px;
 }
 
 /* --- LAYOUT DE BIOGRAFÍA --- */
@@ -471,10 +489,14 @@ img {
 
 .bio-sidebar-img {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     object-fit: cover;
     aspect-ratio: 1;
+}
+
+/* Imagenes: propiedades comunes para bordes y sombras aplicadas en un selector agrupado */
+img, .bio-sidebar-img, .band-card-img img {
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
 }
 
 .bio-sidebar-text {
@@ -577,11 +599,12 @@ img {
 }
 
 @media (max-width: 600px) {
-    .discografia-sui,
-    .discografia-maquina,
-    .discografia-seru,
-    .discografia-charly,
-    .discografia-porsuigieco {
+    .discografia.sui,
+    .discografia.maquina,
+    .discografia.seru,
+    .discografia.charly,
+    .discografia.porsuigieco,
+    .discografia.extras {
         padding: 1rem 0.3rem;
     }
     .list-group-item {
