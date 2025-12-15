@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Curiosidades sobre Charly García</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/estilos.css'>    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg site-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../../index.html">Charly García Wiki</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="../../vidapersonal/index.html">Personal</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../vidaartistica/index.html">Artista</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../vidamediatica/index.html">Mediatico</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../instrumentos/index.html">Instrumentos</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../premios/index.html">Premios</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../curiosidades/index.html">Curiosidades</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        <h1>LO MEJOR DE GARCÍA</h1>
+        <p> El Ícono argentino tiene una obra llena de autorreferencias, momentos inéditos y notas en las revistas más importantes de Argentina. <br> Antes de mencionarlos todos... <span>¿Te animas a un juego para ver cuanto sabes de él?</span> </p>
+        <section>
+            <h2> Quizz sobre Charly García</h2>
+            <div id="app">
+                <form v-if="!finished" @submit.prevent="submitQuiz">
+                    <div :class="['mb-4', q.type === 'text' ? 'flex-text' : '', q.type === 'radio' ? 'flex-radio' : '']" v-for="(q, idx) in selectedQuestions" :key="q.id">
+                        <label class="fw-bold" v-html="q.question.replace(/\n/g, '<br>')"></label>
+                        <div v-if="q.type === 'radio'" class="opciones-radio">
+                            <div v-for="(opt, oidx) in q.options" :key="oidx">
+                                <input type="radio"
+                                    :name="'q'+idx"
+                                    :value="opt"
+                                    v-model="userAnswers[idx]"
+                                    required>
+                                <label>{{ opt }}</label>
+                            </div>
+                        </div>
+                        <input v-else type="text" v-model="userAnswers[idx]" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar respuestas</button>
+                </form>
+                <div v-else>
+                    <h3>¡Resultados!</h3>
+                    <p>Respuestas correctas: {{ score }} de 5</p>
+                    <ul>
+                        <li v-for="(q, idx) in selectedQuestions" :key="q.id">
+                            <strong>{{ q.question }}</strong><br>
+                            Tu respuesta: {{ userAnswers[idx] }}<br>
+                            <span v-if="isCorrect(idx)" class="text-success">✔ Correcta</span>
+                            <span v-else class="text-danger">✘ Incorrecta (Correcta: {{ q.answer }})</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-secondary" @click="restart">Jugar de nuevo</button>
+                </div>
+            </div>
+            <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+            <script src="../../js/quizz.js"></script>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

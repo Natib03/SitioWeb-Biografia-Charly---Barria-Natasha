@@ -1,0 +1,685 @@
+/* Paleta */
+:root {
+    --main-bg: #181818;
+    --main-fg: #f5f5f5;
+    --accent: #e63946;
+    --secondary: #457b9d;
+    --input-bg: #232323;
+    --input-border: #444;
+    --card-bg: #222;
+    --shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+body {
+    background: var(--main-bg);
+    color: var(--main-fg);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+    background: var(--card-bg);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+h1, h2 {
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+/* --- FORMULARIO DE CONTACTO --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group, form > div {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group.row {
+    flex-wrap: wrap;
+}
+
+.form-group input,
+.form-group textarea,
+form input,
+form textarea {
+    background: var(--input-bg);
+    color: var(--main-fg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    width: 100%;
+    transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+form input:focus,
+form textarea:focus {
+    border: 1.5px solid var(--secondary);
+    outline: none;
+}
+
+button, .btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin: 0 auto;
+    display: block;
+}
+
+button:hover, .btn:hover {
+    background: var(--secondary);
+}
+
+/* --- QUIZZ --- */
+#app form {
+    background: var(--input-bg);
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+#app form label.fw-bold {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+#app .mb-4 {
+    background: linear-gradient(90deg, #232323 80%, var(--secondary) 100%);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 16px rgba(70,123,157,0.10);
+    transition: box-shadow 0.2s, border 0.2s;
+}
+
+#app .mb-4:hover {
+    box-shadow: 0 6px 24px rgba(70,123,157,0.18);
+    border-color: var(--secondary);
+}
+
+#app input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--accent);
+    border-radius: 4px; /* Cambia a 0 para cuadrados perfectos, o a 50% para círculos */
+    background: var(--main-bg);
+    margin-right: 0.5rem;
+    position: relative;
+    cursor: pointer;
+    transition: border 0.2s, box-shadow 0.2s;
+    vertical-align: middle;
+}
+
+#app input[type="radio"]:checked {
+    background: var(--accent);
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 2px var(--secondary) inset;
+}
+
+#app input[type="radio"]::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 4px auto;
+    background: #fff;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+#app input[type="radio"]:checked::after {
+    opacity: 1;
+}
+
+#app input[type="text"] {
+    margin-top: 0.5rem;
+    background: var(--main-bg);
+    color: var(--main-fg);
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+}
+
+#app .text-success {
+    color: #4caf50;
+    font-weight: bold;
+}
+#app .text-danger {
+    color: #e63946;
+    font-weight: bold;
+}
+#app .opciones-radio {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+#app .mb-4.flex-text {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#app .mb-4.flex-text label.fw-bold {
+    flex: 0 0 60%;
+    margin-bottom: 0;
+}
+
+#app .mb-4.flex-text input[type="text"] {
+    flex: 0 0 40%;
+    min-width: 120px;
+    max-width: 100%;
+}
+
+#app .mb-4.flex-radio {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#app .mb-4.flex-radio label.fw-bold {
+    flex: 0 0 50%;
+    margin-bottom: 0;
+}
+
+#app .mb-4.flex-radio .opciones-radio {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+}
+
+/* --- NAVBAR PERSONALIZADO --- */
+nav.navbar {
+    font-family: 'Oswald', 'Segoe UI', Arial, sans-serif;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    justify-content: center;
+}
+
+.navbar .navbar-brand {
+    font-family: 'Oswald', 'Segoe UI', Arial, sans-serif;
+    font-size: 2rem;
+    color: #e63946 !important;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 8px #181818;
+    margin-right: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.navbar-nav {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.navbar-nav .nav-link {
+    color: #f5f5f5 !important;
+    font-weight: 600;
+    margin: 0 0.7rem;
+    border-radius: 6px;
+    transition: 
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.2s;
+    padding: 0.5rem 1.1rem;
+    display: inline-block;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    background: #e63946;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(230,57,70,0.18);
+    text-decoration: none;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link[aria-current="page"] {
+    background: #457b9d;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(69,123,157,0.18);
+}
+
+
+
+/* --- SITE NAVBAR (semantic class to avoid visual utilities in HTML) --- */
+.site-navbar {
+    background-color: #212529; /* matches Bootstrap dark */
+    margin-bottom: 1.5rem; /* replaces `mb-4` utility */
+}
+
+.site-navbar .navbar-collapse {
+    justify-content: flex-end; /* keep menu items to the right */
+}
+
+.site-navbar .navbar-toggler-icon {
+    filter: invert(1); /* ensure toggler is visible on dark background */
+}
+
+/* more specific override so existing .navbar-nav centering doesn't conflict */
+.site-navbar .navbar-nav {
+    margin: 0; /* reset centering from global rules */
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+
+/* --- IMÁGENES REPRESENTATIVAS (propiedades comunes agrupadas abajo) --- */
+img {
+    max-width: 100%;
+    margin: 1rem 0;
+}
+
+/* --- ESTILOS DISCOSGRAFÍA --- */
+
+.discografia {
+    border-radius: 14px;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 1rem;
+    color: #fff;
+}
+
+.discografia.sui {
+    background: linear-gradient(90deg, #232323 80%, #2b964f 100%);
+    border-left: 6px solid #618b49;
+}
+
+.discografia.maquina {
+    background: linear-gradient(90deg, #232323 80%, #cfc63f 100%);
+    border-left: 6px solid #848b44;
+}
+
+.discografia.seru {
+    background: linear-gradient(90deg, #232323 80%, #4b48ff 100%);
+    border-left: 6px solid #50e0b5e7;
+    
+}
+
+.discografia.charly {
+    background: linear-gradient(90deg, #232323 80%, #e9661b 100%);
+    border-left: 6px solid #b81a1a;
+}
+
+.discografia.porsuigieco {
+    background: linear-gradient(90deg, #232323 80%, #b25fff 100%);
+    border-left: 6px solid #b96e97;
+}
+
+
+.discografia.extras {
+    background: linear-gradient(90deg, #232323 80%, #c5a8bf 100%);
+    border-left: 6px solid  #584f4f;
+}
+
+/* Títulos de cada banda (aplican a todas las variantes) */
+.discografia h2 {
+    color: inherit;
+    letter-spacing: 2px;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 8px #000;
+}
+
+/* --- ajustes específicos para `vidapersonal` (.bio-content) --- */
+.bio-content h2,
+.bio-content h3,
+.bio-content h4 {
+    text-align: left; /* subtítulos alineados a la izquierda */
+
+    font-weight: 700;
+}
+
+.bio-content h2 {
+    /* menos agresivo: tamaño similar a un h3, menor espacio */
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.6px;
+}
+
+.bio-content h3 {
+    font-size: 1.25rem; /* un poco más grande que el texto de párrafo */
+    margin: 0 0 0.75rem 0;
+    padding-left: 1rem; /* alineado con los párrafos */
+    padding-right: 1rem;
+    line-height: 1.35;
+    box-sizing: border-box;
+    color: var(--secondary);
+}
+
+.bio-content h4 {
+    /* Igual tamaño visual que h3, con un poco más de padding lateral */
+    font-size: 1.25rem;
+    margin: 0 0 0.6rem 0;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    line-height: 1.35;
+    box-sizing: border-box;
+}
+
+.bio-content section {
+    margin: 2.25rem 0; /* más espacio entre secciones */
+}
+
+.bio-content p,
+.bio-content ul {
+    padding-left: 1rem; /* más espacio lateral para mejor lectura */
+    padding-right: 1rem;
+    line-height: 1.6;
+}
+
+
+
+/* Centrar iframes y hacerlos responsivos dentro de .bio-content */
+.bio-content iframe {
+    display: block;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 560px; /* mantén el ancho máximo original */
+    aspect-ratio: 16/9; /* fuerza proporción (mejor que height:auto) */
+    height: auto;
+    border: none;
+}
+
+/* Estilos para los tipos de álbum */
+.album-estudio {
+    background: #232323;
+    border-left: 5px solid #457b9d;
+    color: #f5f5f5;
+    margin-bottom: 0.5rem;
+}
+.album-en-vivo {
+    background: #181818;
+    border-left: 5px solid #e63946;
+    color: #fff;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+.album-recopilacion {
+    background: #292929;
+    border-left: 5px solid #e6c229;
+    color: #fffbe7;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Mejorar visual de los items */
+.list-group-item {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 0.9rem 1rem;
+    transition: background 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.list-group-item:hover {
+    background: #333;
+    box-shadow: 0 4px 16px rgba(70,123,157,0.15);
+}
+
+.album-info {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.album-info strong {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.album-cover {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    flex: 0 0 84px;
+    border-radius: 8px;
+}
+
+/* --- LAYOUT DE BIOGRAFÍA --- */
+.bio-layout {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    align-items: flex-start;
+}
+
+.bio-main {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.8;
+    margin-left: 2rem;
+}
+
+.bio-main p {
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+
+.bio-sidebar {
+    flex: 0 0 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    background: rgba(70, 123, 157, 0.1);
+    border-radius: 12px;
+    border-left: 4px solid var(--secondary);
+}
+
+.bio-sidebar-img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+}
+
+/* Imagenes: propiedades comunes para bordes y sombras aplicadas en un selector agrupado */
+img, .bio-sidebar-img, .band-card-img img {
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+.bio-sidebar-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--main-fg);
+    margin: 0;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    background: rgba(70, 123, 157, 0.15);
+    border-top: 2px solid var(--secondary);
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.site-footer p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.site-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+    color: #ff6b6b;
+}
+
+/* --- BANDS GRID --- */
+.bands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.band-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(70, 123, 157, 0.08);
+    border: 2px solid transparent;
+}
+
+.band-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.2);
+    border-color: var(--secondary);
+}
+
+.band-card-img {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.band-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.band-card-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--main-fg);
+    text-align: center;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.band-card:hover .band-card-name {
+    color: var(--accent);
+}
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+   .container {
+        padding: 1rem 0.5rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .bio-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .bio-sidebar {
+        flex: none;
+        width: 100%;
+    }
+    .navbar .navbar-brand {
+        font-size: 1.4rem;
+        margin-right: 0;
+    }
+    .navbar-nav .nav-link {
+        margin: 0.3rem 0;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .discografia.sui,
+    .discografia.maquina,
+    .discografia.seru,
+    .discografia.charly,
+    .discografia.porsuigieco,
+    .discografia.extras {
+        padding: 1rem 0.3rem;
+    }
+    .list-group-item {
+        padding: 0.7rem 0.5rem;
+    }
+    .site-footer {
+        padding: 1.5rem 0.5rem;
+        margin-top: 2rem;
+    }
+    .site-footer p {
+        font-size: 0.9rem;
+    }
+
+    .form-group, form > div {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    #app form {
+        padding: 1rem 0.5rem;
+    }
+    #app .mb-4 {
+        padding: 0.7rem;
+    }
+
+    .bio-content p,
+    .bio-content ul {
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+    }
+
+}
