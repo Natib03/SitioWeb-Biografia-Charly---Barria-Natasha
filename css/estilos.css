@@ -3,6 +3,7 @@
     --main-bg: #181818;
     --main-fg: #f5f5f5;
     --accent: #e63946;
+    --burgundy: #5f2028; /* tono bordo oscuro para controles */
     --secondary: #457b9d;
     --input-bg: #232323;
     --input-border: #444;
@@ -683,3 +684,403 @@ img, .bio-sidebar-img, .band-card-img img {
     }
 
 }
+
+/* --- FORMULARIO DE CONTACTO MEJORADO --- */
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.form-group-contact {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.15rem;
+}
+
+.form-group-contact label {
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+}
+
+.input-contact {
+    background: var(--input-bg);
+    color: var(--main-fg);
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-contact::placeholder {
+    color: #888;
+    opacity: 0.8;
+}
+
+.input-contact:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(70, 123, 157, 0.15);
+    outline: none;
+}
+
+.textarea-contact {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 0.5rem;
+    align-self: center;
+    min-width: 200px;
+}
+
+.btn-submit:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* --- ESTILOS PRISTINE PARA VALIDACIÓN --- */
+.form-group-contact.form-error {
+    background: rgba(230, 57, 70, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.form-group-contact.form-error .input-contact {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.2);
+}
+
+.form-group-contact.form-success .input-contact {
+    border-color: #4caf50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.pristine-error-message {
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+    font-weight: 500;
+    display: block;
+}
+
+/* --- CONTROLES DE FILTRO DE ÁLBUMES --- */
+.albums-toggle-wrapper {
+    margin-bottom: 1rem;
+}
+.albums-controls .btn-group .btn,
+.albums-controls .albums-filter {
+    border-radius: 6px;
+    border-color: rgba(255,255,255,0.08);
+    color: var(--main-fg);
+    background: transparent;
+}
+.albums-controls .albums-filter {
+    max-width: 260px;
+    padding: 0.4rem 0.6rem;
+    background: var(--burgundy);
+    border: 1px solid rgba(0,0,0,0.25);
+    color: #fff;
+    font-size: 1.03rem;
+    font-weight: 600;
+}
+.albums-controls .albums-filter option {
+    background: var(--card-bg);
+}
+.albums-controls .albums-filter:focus {
+    border-color: var(--burgundy);
+    box-shadow: 0 6px 18px rgba(95,32,40,0.18);
+    outline: none;
+}
+.albums-controls .btn-group .btn.active,
+.albums-controls .albums-filter.active {
+    background: var(--burgundy);
+    color: #fff;
+}
+
+.albums-controls .albums-filter:hover {
+    filter: brightness(0.95);
+}
+
+.albums-controls .filter-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 0.3rem;
+}
+
+.albums-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* --- GALERÍA CURIOSIDADES --- */
+.galeria-curiosidades {
+    margin-top: 2rem;
+}
+
+.galeria-curiosidades h2 {
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-grid a {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid rgba(95, 32, 40, 0.35);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.gallery-grid a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    border-color: var(--burgundy);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-hint {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    color: #cdd3da;
+}
+
+/* --- LISTA DE CURIOSIDADES --- */
+.curiosidades-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+.curiosidades-list li {
+    margin-bottom: 1.2rem;
+    padding-left: 1.8rem;
+    position: relative;
+    line-height: 1.7;
+    color: var(--main-fg);
+}
+
+.curiosidades-list li::before {
+    content: '►';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.85rem;
+    top: 0.2rem;
+}
+
+/* --- VIDA PERSONAL --- */
+.infancia-card {
+    float: right;
+    margin: 0 0 1.5rem 1.5rem;
+    max-width: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    border: 2px solid rgba(95, 32, 40, 0.4);
+}
+
+.infancia-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.vida-personal-article section {
+    margin-bottom: 2.5rem;
+}
+
+.vida-personal-article h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--burgundy);
+    padding-bottom: 0.4rem;
+}
+
+.vida-personal-article h4 {
+    color: var(--secondary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.vida-personal-article p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.vida-personal-article .subsection {
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--burgundy);
+}
+
+@media (max-width: 768px) {
+    .infancia-card {
+        float: none;
+        margin: 1rem auto;
+        max-width: 100%;
+    }
+}
+
+/* --- VIDA MEDIÁTICA --- */
+.mediatica-card {
+    float: right;
+    margin: 0 0 1.5rem 1.5rem;
+    max-width: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    border: 2px solid rgba(95, 32, 40, 0.4);
+}
+
+.mediatica-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.vida-mediatica-article section {
+    margin-bottom: 2.5rem;
+}
+
+.vida-mediatica-article h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--burgundy);
+    padding-bottom: 0.4rem;
+}
+
+.vida-mediatica-article h4 {
+    color: var(--secondary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.vida-mediatica-article p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.vida-mediatica-article iframe {
+    margin: 1rem 0;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .mediatica-card {
+        float: none;
+        margin: 0 auto 1.5rem;
+        display: block;
+    }
+    
+    .vida-mediatica-article iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+}
+
+/* --- PREMIOS --- */
+.premios-card {
+    float: right;
+    margin: 0 0 1.5rem 1.5rem;
+    max-width: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    border: 2px solid rgba(95, 32, 40, 0.4);
+}
+
+.premios-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.premios-article section {
+    margin-bottom: 2.5rem;
+}
+
+.premios-article h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--burgundy);
+    padding-bottom: 0.4rem;
+}
+
+.premios-article h4 {
+    color: var(--secondary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.premios-article p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.premios-article article {
+    margin-bottom: 2rem;
+}
+
+.premios-article ul {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.premios-article ul li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .premios-card {
+        float: none;
+        margin: 0 auto 1.5rem;
+        display: block;
+    }
+}
+
+.album-cover { max-width: 100px; height: auto; margin-left: 0.8rem; }
+.album-info { display: inline-block; vertical-align: middle; }
